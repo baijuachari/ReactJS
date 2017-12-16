@@ -6,9 +6,9 @@ class App extends Component {
 
 	state = {
 		persons: [
-			{name: 'Baiju', age: 28},
-			{name: 'Anil', age: 29},
-			{name: 'Melissa', age: 26}
+			{id: '1', name: 'Baiju', age: 28},
+			{id: '2', name: 'Anil', age: 29},
+			{id: '3', name: 'Melissa', age: 26}
 		],
         showPerson: true
 	}
@@ -26,7 +26,7 @@ class App extends Component {
 	// }
 
     deletePersonHandler = (personIndex) => {
-        let pArray = this.state.persons;
+        let pArray = [...this.state.persons];
         pArray.splice(personIndex, 1);
         this.setState({
             persons: pArray
@@ -36,9 +36,9 @@ class App extends Component {
 	nameChangeHandler = (event) => {
 		this.setState({
 			persons: [
-				{name: 'Baiju Raghavan Achari', age: 28},
-				{name: event.target.value, age: 29},
-				{name: 'Stephanie', age: 27}
+				{id: '1', name: 'Baiju Raghavan Achari', age: 28},
+				{id: '2', name: event.target.value, age: 29},
+				{id: '3', name: 'Stephanie', age: 27}
 			]
 		});
 	}
@@ -63,6 +63,7 @@ class App extends Component {
         if (this.state.showPerson) {
             persons = this.state.persons.map((person, index) => {
                 return <Person 
+                    key={person.id}
                     name={person.name} 
                     click={this.deletePersonHandler.bind(this, index)}
                     age={person.age}>
