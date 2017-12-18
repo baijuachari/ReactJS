@@ -28,11 +28,11 @@ class App extends Component {
     };
 
     render() {
-        const charStyle = {         
+        const charGroupStyle = {         
             border: '2px solid #eee',
             padding: '25px',
-            margin: '40px 25%',
-            width: '50%'
+            margin: '40px 10%',
+            width: '80%'
         };
 
         let inputValArr = this.state.inputVal.split("");
@@ -53,7 +53,7 @@ class App extends Component {
                 <div>
                     <Validator inputVal={this.state.inputVal} inputLength={this.state.inputLength}></Validator>
                 </div>
-                <div style={charStyle}>
+                <div style={charGroupStyle}>
                     {charArr.length > 0 ? (<div>Click Any character to be deleted</div>): null}
                     {charArr}
                 </div>
